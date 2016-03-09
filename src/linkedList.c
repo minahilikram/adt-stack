@@ -1,9 +1,3 @@
-/*********************************
-Minahil Ikram       0721370
-CIS*2520            Lab 5
-October 08, 2012
-*********************************/
-
 #include <stdio.h>
 #include "linkedList.h"
 #include <stdlib.h>

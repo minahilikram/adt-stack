@@ -1,76 +1,51 @@
-/*******************
-Name: Minahil Ikram
-Student #: 0721370
-********************/
+/*********************************
+Minahil Ikram       0721370
+CIS*2520            Lab 5
+October 08, 2012
+*********************************/
 
 #include <stdio.h>
-#include "header.h"
+#include "stack.h"
 #include <stdlib.h>
 
-/*Initalizes list*/
-node * createList() {
-    node * dummyNode;
-    dummyNode = malloc(sizeof(node));
-    dummyNode->nodeLength = 0;
-    dummyNode->nodeValue = 0;
+stackNode * createStack() {
+
+    stackNode * myStack;
+    myStack = malloc(sizeof(stackNode));
+    myStack->head = createList();
     
-    return dummyNode;
+    return myStack;
 }
 
-/*Adds a node to the front of the list*/
-void addFront(node * head, int i) {
-    node * newNode;
-    newNode = initNode(i);
-    newNode->next = head->next;
-    head->next = newNode;
+void destroyStack(stackNode * myStack) {
+
+    destroy(myStack->head);
+    free(myStack);
 
 }
 
-/*Gets the value stored in the node at the front of the list*/
-int getFront(node * head) {
+void push(stackNode * myStack, char *elem) {
+
+    addFront(myStack->head, elem);
+
+}
+
+char *pop(stackNode * myStack) {
+
+    char *i;
+    i = removeFront(myStack->head);
+
+    return i;
+}
+
+char *peek(stackNode * myStack) {
     
-    return head->next->nodeValue;
+    char *i;
+    i = getFront(myStack->head);
+
+    return i;
 }
 
-/*Removes the first node in the list*/
-node * removeFront(node * head) {
-    node * tempPtr;
-    tempPtr = head->next;
-    head->next = head->next->next;
-    free(tempPtr);
-    
-    return tempPtr;
-
-}
-
-/*Prints the list*/
-void printList(node * head) {
-    node * N;
-    N = head;
-    N = N->next;
-    while (N != NULL) {
-        printf("%d ", N->nodeValue);
-        N = N->next;
-    }
-}
-
-/*Initializes a new node to add to the list*/
-node * initNode(int i) {
-    node * newNode;
-    newNode = malloc(sizeof(node));
-    newNode->nodeValue = i;
-    newNode->next = NULL;
-    
-    return newNode;
-
-}
-
-/*Destroys the list*/
-void destroy(node * head) {
-    node * temp = head;
-    while (temp != NULL) {
-        temp = temp->next;
-        free(head);
-        head = temp;
-    }
+void printStack(stackNode *myStack){
+    printList(myStack->head);
 }

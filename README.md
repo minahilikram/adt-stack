@@ -1,23 +1,27 @@
-RUN:
-    1) To compile, in terminal, type "make".
-    2) To run, in terminal, type "./bin/lab3runnable" or type "make run".
-    
-INFORMATION:
-    The program has a menu of options to choose from to test it. I have an option to run tests that I have come up with,
-    some are defined below others I could not put into the program in order to compile.
-    
-TESTS:                                                                      RESULTS:                 FIX:
-    1) If getFront or removeFront function is called on an empty list ->    seg fault          ->    check for NULL
-    2) If destroy function is called more than once                   ->    program crashes    ->    destroy and exit together
-    3) Under "My Tests" option if the integers in the
-       array are too big or too small                                 ->    overflow           ->    can't take too big or too small numbers
-    4) If any function is sent a bad pionter                          ->    seg faults         ->    keep track of pointers
-    5) Checking for memory leaks using Valgrind                       ->    no leaks found     ->    no fix needed
-    6) If double or float is sent                                     ->    number truncated   ->    cannot take decimals, send only int
-    7) If characters are put into the input menu                      ->    loops back         ->    maybe a statement to let user know
-    
-EXTRA NOTES:
-    1) I did not have createlist as an option in main because then I would have to keep track of more than one list.
-    2) Under "My Tests" the too big negative and positive integers given are the max the compiler allows.
-    3) When "My Tests" are run, it adds onto the list that you may test. So, the list now has extra numbers ones that I put in to test, and
-    the ones you may put in. To avoid this, test the program yourself first and exit or destroy and start over.
+# adt-stack
+
+> Stack
+
+[Stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) is an integer and character based implementation on top of a linked list ADT on C Algorithms for applications.
+
+> Stack is a LIFO (for last in, first out) abstract data type that serves as a collection of elements, with two principal operations: push, which adds an element to the collection, and pop, which removes the most recently added element that was not yet removed.
+
+## Install
+
+```sh
+$ git clone https://github.com/minahilikram/adt-stack
+```
+
+## Usage
+
+For an example, see [src/main.c](https://github.com/minahilikram/adt-stack/blob/master/src/main.c)); to execute see below.
+
+```sh
+$ cd adt-stack/
+$ make
+$ make run
+```
+
+## Limitations
+
+For a complete list of limitations, see [docs/analysis.md](https://github.com/minahilikram/adt-stack/blob/master/docs/analysis.md).

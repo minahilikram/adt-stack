@@ -24,4 +24,4 @@ $ make run
 
 ## Limitations
 
-For a complete list of limitations, see [docs/analysis.md](https://github.com/minahilikram/adt-stack/blob/master/docs/analysis.md).
+Accepts only 8 characters/spaces/numbers to be added to stack.
